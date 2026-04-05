@@ -13,4 +13,138 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--page-main-font-family, "Inter", sans-serif);
+  font-variation-settings: "wght" var(--page-content-font-weight, 410);
+  background-image: var(--page-background-image, none);
+  background-size: cover;
+  background-attachment: fixed;
+  padding-block-start: 98px;
+}
+
+.header {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  text-transform: uppercase;
+  margin-block-end: 96px;
+  box-sizing: content-box;
+  margin-inline: auto;
+  inline-size: clamp(371px, 48.61vw, 700px);
+  block-size: clamp(327px, 25.5vw, 368px);
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.header__logo {
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  text-transform: uppercase;
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__description {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.main {
+  display: grid;
+  justify-content: center;
+  gap: 48px;
+}
+
+.card {
+  inline-size: clamp(375px, 48.61vw, 700px);
+  background-color: #fff;
+  border: 2px solid #000;
+  
+}
+
+.card__title {
+  font-variation-settings: "wght" var(--page-title-font-weight, 715);
+  font-size: 18px;
+  margin: 5px 10px ;
+}
+
+.card__image-container {
+  position: relative;
+  border-top:2px solid black ;
+  border-bottom:2px solid black;
+  box-sizing: content-box;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .watermark {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    text-shadow: none;
+  }
+}
+
+.watermark {
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  text-shadow: -1px 0 white, 1px 0 white, 0 -1px white, 0  1px white;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+}
+
+.card__image {
+  object-fit: cover;
+  object-position: right;
+  inline-size: 100%;
+  block-size: 100%;
+  
+}
+
+.card__description {
+  padding: 25px;
+  display: grid;
+  gap: 25px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.card__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+  line-height: 0.9;
+}
+
+.card__icon-button {
+  inline-size: 39px;
+  block-size: 39px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
 }
