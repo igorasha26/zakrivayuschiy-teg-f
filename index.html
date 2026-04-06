@@ -44,7 +44,7 @@
         </div>
         <div class="card__controls">
           <button class="card__icon-button" type="button">
-            <svg class="like-icon" width="39" height="39" viewBox="0 0 39 39">
+            <svg class="like-icon" viewBox="0 0 39 39">
               <g class="heart">
                 <path
                   class="core"
@@ -71,7 +71,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -81,7 +81,7 @@
         <div class="card__image-container">
           <span class="watermark">&lt;/HTML&gt;</span>
           <img
-            class="card__image second-image"
+            class="card__image blur-image"
             src="./images/image.png"
             alt="Пиксель-арт фургон ночью"
             loading="lazy"
@@ -101,7 +101,7 @@
         </div>
         <div class="card__controls">
           <button class="card__icon-button" type="button">
-            <svg class="like-icon" width="39" height="39" viewBox="0 0 39 39">
+            <svg class="like-icon"  viewBox="0 0 39 39">
               <g class="heart">
                 <path
                   class="core"
@@ -128,7 +128,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -138,7 +138,7 @@
         <div class="card__image-container">
           <span class="watermark">&lt;/HTML&gt;</span>
           <img
-            class="card__image the_third-image"
+            class="card__image multiple-image"
             src="./images/image.png"
             alt="Пиксель-арт фургон ночью"
             loading="lazy"
@@ -156,7 +156,7 @@
         </div>
         <div class="card__controls">
           <button class="card__icon-button" type="button">
-            <svg class="like-icon" width="39" height="39" viewBox="0 0 39 39">
+            <svg class="like-icon"viewBox="0 0 39 39">
               <g class="heart">
                 <path
                   class="core"
@@ -183,7 +183,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -193,7 +193,7 @@
         <div class="card__image-container">
           <span class="watermark">&lt;/HTML&gt;</span>
           <img
-            class="card__image fourth-image"
+            class="card__image grayscale-image"
             src="./images/image.png"
             alt="Пиксель-арт фургон ночью"
             loading="lazy"
@@ -240,7 +240,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -250,7 +250,7 @@
         <div class="card__image-container">
           <span class="watermark">&lt;/HTML&gt;</span>
           <img
-            class="card__image fifth-image"
+            class="card__image sepia-image"
             src="./images/image.png"
             alt="Пиксель-арт фургон ночью"
             loading="lazy"
@@ -298,7 +298,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -308,7 +308,7 @@
         <div class="card__image-container">
           <span class="watermark">&lt;/HTML&gt;</span>
           <img
-            class="card__image sixth-image"
+            class="card__image invert-image"
             src="./images/image.png"
             alt="Пиксель-арт фургон ночью"
             loading="lazy"
@@ -353,7 +353,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -363,7 +363,7 @@
         <div class="card__image-container">
           <span class="watermark">&lt;/HTML&gt;</span>
           <img
-            class="card__image seventh-image"
+            class="card__image hue-rotate-image"
             src="./images/image.png"
             alt="Пиксель-арт фургон ночью"
             loading="lazy"
@@ -410,7 +410,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -420,7 +420,7 @@
         <div class="card__image-container">
           <span class="watermark">&lt;/HTML&gt;</span>
           <img
-            class="card__image eighth-image"
+            class="card__image saturate-image"
             src="./images/image.png"
             alt="Пиксель-арт фургон ночью"
             loading="lazy"
@@ -469,7 +469,7 @@
               </g>
             </svg>
           </button>
-          <button class="card__like-button" type="button">
+          <button class="card__like-button button" type="button">
             <span class="button__text">Like</span>
           </button>
         </div>
@@ -479,7 +479,7 @@
         type="button"
         onclick="window.modal.showModal()"
         aria-controls="modal"
-        class="save__button"
+        class="save__button button"
       >
         <svg class="button__icon" viewBox="0 0 29 28">
           <use href="svg/floppy.svg#floppy" />
@@ -497,12 +497,12 @@
       </div>
       <form method="dialog">
         <button
-          type="button"
+          type="submit"
           onclick="window.modal.close()"
           aria-controls="modal"
-          class="modal__button"
+          class="modal__button button"
         >
-          <span class="button__text">OK</span>
+          <span class="button__text button__text-modal">ок</span>
         </button>
       </form>
     </dialog>

@@ -33,7 +33,8 @@
   box-sizing: content-box;
   margin-inline: auto;
   inline-size: clamp(371px, 48.61vw, 700px);
-  block-size: clamp(327px, 25.5vw, 368px);
+  /* block-size: clamp(327px, 25.5vw, 368px); */
+  padding: 130px 0;
   background-color: #fff;
   border: 2px solid #000;
 }
@@ -55,7 +56,7 @@
 .main {
   display: grid;
   justify-content: center;
-  gap: 48px;
+  gap: 49px;
   padding-block-end: 100px;
 }
 
@@ -80,13 +81,6 @@
   overflow: hidden;
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
-  .watermark {
-    -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
-    text-shadow: none;
-  }
-}
 
 .watermark {
   position: absolute;
@@ -94,14 +88,22 @@
   inset-block-start: 25px;
   inset-inline-end: 25px;
   text-shadow:
-    -1px 0 white,
-    1px 0 white,
-    0 -1px white,
-    0 1px white;
+  -1px 0 white,
+  1px 0 white,
+  0 -1px white,
+  0 1px white;
   opacity: 0.5;
   mix-blend-mode: hard-light;
   font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
   font-size: 14px;
+}
+
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .watermark {
+    -webkit-text-stroke: 1px #fff;
+    text-stroke: 1px #fff;
+    text-shadow: none;
+  }
 }
 
 .card__image {
@@ -113,31 +115,31 @@
 
 /* Фильтры карточки */
 
-.second-image {
-filter: blur(10px);
+.blur-image {
+  filter: blur(10px);
 }
 
-.the_third-image {
- filter: hue-rotate(90deg) invert(100%) contrast(100%);
+.multiple-image {
+  filter: hue-rotate(90deg) invert(100%) contrast(100%);
 }
 
-.fourth-image {
-filter: grayscale(80%);
+.grayscale-image {
+  filter: grayscale(80%);
 }
 
-.fifth-image {
-filter: sepia(0.6);
+.sepia-image {
+  filter: sepia(0.6);
 }
 
-.sixth-image {
+.invert-image {
  filter: invert(100%);
 }
 
-.seventh-image {
+.hue-rotate-image {
  filter: hue-rotate(90deg);
 }
 
-.eighth-image {
+.saturate-image {
   filter: saturate(250%);
 }
 
@@ -151,30 +153,35 @@ filter: sepia(0.6);
 
 .card__controls {
   display: flex;
+  gap: 8px;
   justify-content: flex-end;
   padding-right: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 23px;
+  
+}
+
+.button {
+  position: relative;
+  border: 2px solid #000;
+  background-color: #fff;
+  cursor: pointer;
+  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
+  font-size: 14px;
+  align-items: center;
 }
 
 .card__like-button {
-  position: relative;
   inline-size: 130px;
   block-size: 38px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  border: 2px solid #000;
-  cursor: pointer;
-  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
-  font-size: 14px;
   line-height: 0.9;
 }
 
 .card__icon-button {
   position: relative;
-  width: 52px;
-  height: 39px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,6 +189,7 @@ filter: sepia(0.6);
   transition: border-color 0.3s ease;
   border: 2px solid transparent;
   background-color: transparent;
+  padding: 0;
 }
 
 /* анимация сердца */
@@ -191,12 +199,12 @@ filter: sepia(0.6);
 }
 
 .core {
-  transition: fill 0.3s 0.03s;
+  transition: fill 0.3s linear 0.03s;
   fill: #fff;
 }
 
 .main-body {
-  transition: fill 0.3s 0.05s;
+  transition: fill 0.3s linear;
   fill: #fff;
 }
 
@@ -224,34 +232,39 @@ filter: sepia(0.6);
 /* hover эффект */
 
 .like-icon:hover .core {
-  transition-delay: 0s;
+  transition: fill 0.3s linear;
   fill: var(--contour-color);
 }
 
 .like-icon:hover .main-body {
-  transition-delay: 0.05s;
+  transition: fill 0.3s linear 0.05s;
   fill: var(--contour-color);
 }
 
 /* active эффект */
 
 .like-icon:active .main-body {
-  transition-delay: 0.05s;
+   transition: fill 0.3s linear 0.05s;
   fill: var(--animation-fill-color);
 }
 
+.like-icon:active .core {
+  transition: fill 0.3s linear;
+  fill:  #ff0000;
+}
+
 .like-icon.is-liked .core {
-  transition-delay: 0s;
+   transition: fill 0.3s linear;
   fill: var(--animation-fill-color);
 }
 
 .like-icon.is-liked .main-body {
-  transition-delay: 0.05s;
+   transition: fill 0.3s linear 0.05s;
   fill: var(--animation-fill-color);
 }
 
 .like-icon.is-liked .contour {
-  transition: fill 0.3s 0.06s;
+  transition: fill 0.3s linear 0.06s;
   fill: var(--animation-fill-color);
 }
 
@@ -266,7 +279,6 @@ filter: sepia(0.6);
 /* Кнопка сохранить на пмять */
 
 .save__button {
-  position: relative;
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -274,11 +286,6 @@ filter: sepia(0.6);
   justify-content: center;
   margin: auto;
   padding: 15px 18px;
-  cursor: pointer;
-  border: 2px solid #000;
-  background-color: #fff;
-  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
-  font-size: 14px;
   gap: 8px;
   isolation: isolate;
 }
@@ -289,11 +296,11 @@ filter: sepia(0.6);
   height: 21px;
   flex-shrink: 0;
   transition: color 0.5s ease-in-out;
-  color: var(--bg-color, #fff);
+  color:  #fff;
   mix-blend-mode: difference;
 }
 
-.button__icon,
+
 .button__text {
   position: relative;
   color: #ffffff;
@@ -302,24 +309,16 @@ filter: sepia(0.6);
 
 /* Эффекты кнопок */
 
-.card__like-button:focus,
-.save__button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible,
-.save__button:focus-visible {
+.button:focus-visible {
   transition: box-shadow 0.3s ease;
   box-shadow: 2px 2px 0 0 #000;
 }
 
-.card__icon-button:focus {
-  outline: none;
-  border: none;
-}
-
-.card__like-button::before,
-.save__button::before {
+.button::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -332,8 +331,7 @@ filter: sepia(0.6);
   background-color: #000;
 }
 
-.card__like-button:hover:before,
-.save__button:hover::before {
+.button:hover:before {
   transform: scaleX(1);
 }
 
@@ -382,46 +380,24 @@ filter: sepia(0.6);
 }
 
 .modal__button {
-  position: relative;
   overflow: hidden;
   align-self: flex-end;
   width: 100%;
   padding: 10px 20px;
-  cursor: pointer;
-  border: 2px solid #000;
-  background-color: #fff;
-  font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
-  font-size: 14px;
 }
 
-/* Эффект кнопки модального окна */
-
-.modal__button:focus {
-  transition: box-shadow 0.3s ease;
-  outline: none;
-  box-shadow: 2px 2px 0 0 #000;
-}
-
-.modal__button::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-  background-color: #000;
-}
-
-.modal__button:hover::before {
-  transform: scaleX(1);
+.button__text-modal {
+  text-transform:uppercase;
 }
 
 /* Адаптив */
 
 @media (width <= 375px) {
+  .header {
+    padding: 122px 0;
+    margin-block-end: 98px;
+  } 
+
   .save__button {
     flex-direction: column;
   }
